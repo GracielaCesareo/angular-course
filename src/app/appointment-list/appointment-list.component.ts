@@ -8,17 +8,17 @@ import { Appointment } from '../models/appointment';
 })
 export class AppointmentListComponent {
   public newAppointmentTitle: string = '';
-  public newAppointemntDate: Date = new Date();
+  public newAppointmentDate: Date = new Date();
 
   public appointments: Appointment[] = []
 
   public addNewAppointment(): void {
-    if(this.newAppointmentTitle.length && this.newAppointemntDate) {
+    if(this.newAppointmentTitle.length && this.newAppointmentDate) {
 
       let newAppointment = {
         id: Date.now(),
         title: this.newAppointmentTitle,
-        date: this.newAppointemntDate
+        date: this.newAppointmentDate
       }
 
       this.appointments.push(newAppointment);
@@ -30,7 +30,7 @@ export class AppointmentListComponent {
 
   public resetForm(): void {
     this.newAppointmentTitle = '';
-    this.newAppointemntDate = new Date();
+    this.newAppointmentDate = new Date();
   }
 
 }
