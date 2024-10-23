@@ -1,14 +1,16 @@
+<div class="container mx-auto">
+    <h2 class="text-2xl">Create an appointment</h2>
+    <div class="grid grid-cols-3 gap-4 p-10">
+        <input [(ngModel)]="newAppointmentTitle" type="text" placeholder="Appointment description" class="rounded">
+        <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" class="rounded">
+        <button (click)="addNewAppointment()" class="col-span-2 rounded border-solid border-indigo-600 bg-indigo-600 text-white p-2">Add Appointment</button>
+    </div>
 
-<div>
-    <input [(ngModel)]="newAppointmentTitle" type="text" placeholder="Appointment description">
-    <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date">
-    <button (click)="addNewAppointment()">Add Appointment</button>
+    <h1 class="text-4xl p">Appointment List</h1>
+    <ul class="container">
+        <li *ngFor="let appointment of appointments, index as i" class="p-2 text-base">
+            {{ appointment.title }} - {{ appointment.date | date: 'dd.MM.yyyy' }}
+            <button (click)="deleteAppointment(i)" class="rounded border-solid border-indigo-600 bg-indigo-600 text-white p-2">Delete</button>
+        </li>
+    </ul>
 </div>
-
-<ul>
-    <li *ngFor="let appointment of appointments, index as i">
-        {{ appointment.title }} - {{ appointment.date | date: 'dd.MM.yyyy' }}
-        <button (click)="deleteAppointment(i)">Delete</button>
-    </li>
-    
-</ul>
